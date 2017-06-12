@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 public abstract class PoGoHeaderSerializer {
-    public abstract String getDelimiter();
+    protected abstract String getDelimiter();
 
     public String serializeHeader(List<String> headers) {
         return String.join(getDelimiter(), headers);
