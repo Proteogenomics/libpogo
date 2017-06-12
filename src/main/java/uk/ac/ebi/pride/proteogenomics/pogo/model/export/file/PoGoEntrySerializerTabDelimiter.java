@@ -11,7 +11,7 @@ package uk.ac.ebi.pride.proteogenomics.pogo.model.export.file;
 
 public class PoGoEntrySerializerTabDelimiter extends PoGoEntrySerializer {
     @Override
-    public String getDelimiter() {
+    protected String getDelimiter() {
         return "\t";
     }
 }
