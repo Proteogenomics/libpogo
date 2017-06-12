@@ -46,7 +46,7 @@ public class PoGoFileExporter implements PoGoExporter {
         this.poGoEntrySerializer = poGoEntrySerializer;
         this.poGoHeaderSerializer = poGoHeaderSerializer;
     }
-    
+
     public void export(List<PoGoEntry> poGoEntries) {
         // TODO
     }
