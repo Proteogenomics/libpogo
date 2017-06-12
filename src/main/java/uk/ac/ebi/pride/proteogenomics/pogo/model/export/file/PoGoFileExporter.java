@@ -14,6 +14,9 @@ import java.util.List;
  * ---
  * © 2017 Manuel Bernal Llinares <mbdebian@gmail.com>
  * All rights reserved.
+ *
+ * Yes, this class is the director and the builder itself, in a library of this size, overhauling the layers of
+ * abstraction makes no sense
  */
 
 public class PoGoFileExporter implements PoGoExporter {
@@ -43,7 +46,7 @@ public class PoGoFileExporter implements PoGoExporter {
         this.poGoEntrySerializer = poGoEntrySerializer;
         this.poGoHeaderSerializer = poGoHeaderSerializer;
     }
-
+    
     public void export(List<PoGoEntry> poGoEntries) {
         // TODO
     }
