@@ -16,6 +16,23 @@ import java.util.List;
  */
 
 public class PoGoFileExporter implements PoGoExporter {
+    public enum HEADERS {
+        EXPERIMENT("Experiment"),
+        PEPTIDE("Peptide"),
+        PSM("PSMs"),
+        QUANT("Quant");
+
+        private String value = "";
+
+        HEADERS(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
     private static final Logger logger = LoggerFactory.getLogger(PoGoFileExporter.class);
 
     private String fileName = "";
