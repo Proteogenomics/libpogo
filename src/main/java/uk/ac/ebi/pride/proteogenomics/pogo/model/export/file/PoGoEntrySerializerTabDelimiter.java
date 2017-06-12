@@ -1,4 +1,4 @@
-package uk.ac.ebi.pride.proteogenomics.pogo.model.export;
+package uk.ac.ebi.pride.proteogenomics.pogo.model.export.file;
 
 /**
  * Project: libpogo

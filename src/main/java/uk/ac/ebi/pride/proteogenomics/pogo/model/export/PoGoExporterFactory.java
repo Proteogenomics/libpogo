@@ -1,5 +1,8 @@
 package uk.ac.ebi.pride.proteogenomics.pogo.model.export;
 
+import uk.ac.ebi.pride.proteogenomics.pogo.model.export.file.PoGoEntrySerializerTabDelimiter;
+import uk.ac.ebi.pride.proteogenomics.pogo.model.export.file.PoGoFileExporter;
+
 /**
  * Project: libpogo
  * Package: uk.ac.ebi.pride.proteogenomics.pogo.model.export

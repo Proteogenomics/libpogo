@@ -1,4 +1,4 @@
-package uk.ac.ebi.pride.proteogenomics.pogo.model.export;
+package uk.ac.ebi.pride.proteogenomics.pogo.model.export.file;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
