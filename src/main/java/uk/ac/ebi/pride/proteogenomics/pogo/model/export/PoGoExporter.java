@@ -14,5 +14,5 @@ import java.util.List;
  */
 
 public interface PoGoExporter {
-    void export(List<PoGoEntry> poGoEntries);
+    void export(List<PoGoEntry> poGoEntries) throws PoGoExporterException;
 }
