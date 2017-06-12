@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.export.PoGoExporter;
+import uk.ac.ebi.pride.proteogenomics.pogo.model.export.PoGoExporterException;
 
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class PoGoFileExporter implements PoGoExporter {
         this.poGoHeaderSerializer = poGoHeaderSerializer;
     }
 
-    public void export(List<PoGoEntry> poGoEntries) {
+    public void export(List<PoGoEntry> poGoEntries) throws PoGoExporterException {
         // TODO
     }
 }
