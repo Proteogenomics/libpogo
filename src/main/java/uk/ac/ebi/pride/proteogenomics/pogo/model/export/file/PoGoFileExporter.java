@@ -6,6 +6,7 @@ import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.export.PoGoExporter;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.export.PoGoExporterException;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -21,6 +22,8 @@ import java.util.List;
  */
 
 public class PoGoFileExporter implements PoGoExporter {
+    private static final Logger logger = LoggerFactory.getLogger(PoGoFileExporter.class);
+
     public enum HEADERS {
         EXPERIMENT("Experiment"),
         PEPTIDE("Peptide"),
@@ -50,5 +53,11 @@ public class PoGoFileExporter implements PoGoExporter {
 
     public void export(List<PoGoEntry> poGoEntries) throws PoGoExporterException {
         // TODO
+        File output = new File(fileName);
+        if (!output.canWrite()) {
+            throw new PoGoExporterException(String.format("Can't export PoGo data to file '%s'", fileName));
+        }
+        // TODO - write header
+        // TODO - Write entries
     }
 }
