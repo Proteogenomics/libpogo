@@ -2,6 +2,7 @@ package uk.ac.ebi.pride.proteogenomics.pogo.model.export;
 
 import uk.ac.ebi.pride.proteogenomics.pogo.model.export.file.PoGoEntrySerializerTabDelimiter;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.export.file.PoGoFileExporter;
+import uk.ac.ebi.pride.proteogenomics.pogo.model.export.file.PoGoHeaderSerializerTabDelimiter;
 
 /**
  * Project: libpogo
@@ -14,6 +15,6 @@ import uk.ac.ebi.pride.proteogenomics.pogo.model.export.file.PoGoFileExporter;
 
 public class PoGoExporterFactory {
     public static PoGoExporter getTabularFileExporter(String fileName) {
-        return new PoGoFileExporter(fileName, new PoGoEntrySerializerTabDelimiter());
+        return new PoGoFileExporter(fileName, new PoGoEntrySerializerTabDelimiter(), new PoGoHeaderSerializerTabDelimiter());
     }
 }
