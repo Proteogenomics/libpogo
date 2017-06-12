@@ -34,8 +34,6 @@ public class PoGoFileExporter implements PoGoExporter {
         }
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(PoGoFileExporter.class);
-
     private String fileName = "";
     private PoGoEntrySerializer poGoEntrySerializer = null;
 
