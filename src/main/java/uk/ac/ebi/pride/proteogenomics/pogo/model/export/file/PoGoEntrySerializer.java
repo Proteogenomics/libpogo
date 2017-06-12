@@ -16,7 +16,7 @@ import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 public abstract class PoGoEntrySerializer {
     private static final Logger logger = LoggerFactory.getLogger(PoGoEntrySerializer.class);
 
-    public abstract String getDelimiter();
+    protected abstract String getDelimiter();
 
     public String serializeEntry(PoGoEntry poGoEntry) {
         return String.format("%s%s%s%s%d%s%f",
