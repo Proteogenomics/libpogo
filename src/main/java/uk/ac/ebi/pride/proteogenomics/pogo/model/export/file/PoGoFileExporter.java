@@ -6,7 +6,13 @@ import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.export.PoGoExporter;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.export.PoGoExporterException;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -52,12 +58,29 @@ public class PoGoFileExporter implements PoGoExporter {
     }
 
     public void export(List<PoGoEntry> poGoEntries) throws PoGoExporterException {
-        // TODO
+        if (poGoEntries == null) {
+            throw new PoGoExporterException(String.format("PoGo Data CANNOT BE NULL, failed to export to file '%s'", fileName));
+        }
+
         File output = new File(fileName);
         if (!output.canWrite()) {
             throw new PoGoExporterException(String.format("Can't export PoGo data to file '%s'", fileName));
         }
-        // TODO - write header
-        // TODO - Write entries
+
+        Path path = Paths.get(fileName);
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            // Write header
+            writer.write(poGoHeaderSerializer.serializeHeader(Arrays.asList(HEADERS.EXPERIMENT.getValue(),
+                    HEADERS.PEPTIDE.getValue(),
+                    HEADERS.PSM.getValue(),
+                    HEADERS.QUANT.getValue())));
+            // Write entries
+            for (PoGoEntry poGoEntry :
+                    poGoEntries) {
+                writer.write(poGoEntrySerializer.serializeEntry(poGoEntry));
+            }
+        } catch (IOException e) {
+            throw new PoGoExporterException(String.format("PoGo data COULD NOT BE EXPORTED to file '%s' because ", fileName), e);
+        }
     }
 }
