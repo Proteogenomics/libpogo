@@ -36,10 +36,12 @@ public class PoGoFileExporter implements PoGoExporter {
 
     private String fileName = "";
     private PoGoEntrySerializer poGoEntrySerializer = null;
+    private PoGoHeaderSerializer poGoHeaderSerializer = null;
 
-    public PoGoFileExporter(String fileName, PoGoEntrySerializer poGoEntrySerializer) {
+    public PoGoFileExporter(String fileName, PoGoEntrySerializer poGoEntrySerializer, PoGoHeaderSerializer poGoHeaderSerializer) {
         this.fileName = fileName;
         this.poGoEntrySerializer = poGoEntrySerializer;
+        this.poGoHeaderSerializer = poGoHeaderSerializer;
     }
 
     public void export(List<PoGoEntry> poGoEntries) {
