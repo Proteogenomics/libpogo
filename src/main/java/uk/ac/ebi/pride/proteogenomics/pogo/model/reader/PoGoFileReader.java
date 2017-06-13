@@ -3,6 +3,7 @@ package uk.ac.ebi.pride.proteogenomics.pogo.model.reader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
+import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntryFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -51,7 +52,7 @@ public abstract class PoGoFileReader {
                 }
                 String[] lineItems = line.trim().split(getDelimiter());
                 if (lineItems.length == 4) {
-                    poGoEntries.add(new PoGoEntry(lineItems[0],
+                    poGoEntries.add(PoGoEntryFactory.createPoGoEntry(lineItems[0],
                             lineItems[1],
                             Integer.parseInt(lineItems[2]),
                             Double.parseDouble(lineItems[3])));
