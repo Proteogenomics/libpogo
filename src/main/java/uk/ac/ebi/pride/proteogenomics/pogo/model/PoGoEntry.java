@@ -17,6 +17,10 @@ public class PoGoEntry {
     private Integer psm = 0;
     private Double quant = 0d;
 
+    protected PoGoEntry() {
+        // For inheritance
+    }
+
     protected PoGoEntry(String experiment, String peptide, Integer psm, Double quant) {
         this.experiment = experiment;
         this.peptide = peptide;
