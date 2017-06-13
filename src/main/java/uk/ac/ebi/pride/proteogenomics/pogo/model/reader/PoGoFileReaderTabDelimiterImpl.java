@@ -10,6 +10,10 @@ package uk.ac.ebi.pride.proteogenomics.pogo.model.reader;
  */
 
 public class PoGoFileReaderTabDelimiterImpl extends PoGoFileReader {
+    public PoGoFileReaderTabDelimiterImpl(String fileName) {
+        super(fileName);
+    }
+
     @Override
     protected String getDelimiter() {
         return "\t";
