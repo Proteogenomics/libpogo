@@ -17,7 +17,7 @@ public class PoGoEntry {
     private Integer psm = 0;
     private Double quant = 0d;
 
-    public PoGoEntry(String experiment, String peptide, Integer psm, Double quant) {
+    protected PoGoEntry(String experiment, String peptide, Integer psm, Double quant) {
         this.experiment = experiment;
         this.peptide = peptide;
         this.psm = psm;
@@ -38,5 +38,21 @@ public class PoGoEntry {
 
     public Double getQuant() {
         return quant;
+    }
+
+    public void setExperiment(String experiment) {
+        this.experiment = experiment;
+    }
+
+    public void setPeptide(String peptide) {
+        this.peptide = peptide;
+    }
+
+    public void setPsm(Integer psm) {
+        this.psm = psm;
+    }
+
+    public void setQuant(Double quant) {
+        this.quant = quant;
     }
 }
