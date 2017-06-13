@@ -28,9 +28,15 @@ import java.util.List;
 public abstract class PoGoFileReader {
     private static final Logger logger = LoggerFactory.getLogger(PoGoFileReader.class);
 
+    private String fileName = "";
+
+    public PoGoFileReader(String fileName) {
+        this.fileName = fileName;
+    }
+
     protected abstract String getDelimiter();
 
-    public List<PoGoEntry> readAllPoGoEntries(String fileName) {
+    public List<PoGoEntry> readAllPoGoEntries() {
         List<PoGoEntry> poGoEntries = new ArrayList<>();
         Path path = Paths.get(fileName);
         logger.debug("Path for file '{}' -> '{}'");
