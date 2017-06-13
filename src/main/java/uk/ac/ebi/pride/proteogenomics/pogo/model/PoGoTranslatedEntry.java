@@ -35,7 +35,7 @@ public class PoGoTranslatedEntry extends PoGoEntry {
 
     @Override
     public void setPsm(Integer psm) {
-        // TODO
+        psm = poGoEntryTranslator.getPsm(psm);
     }
 
     @Override
