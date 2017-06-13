@@ -39,7 +39,7 @@ public abstract class PoGoFileReader {
     public List<PoGoEntry> readAllPoGoEntries() {
         List<PoGoEntry> poGoEntries = new ArrayList<>();
         Path path = Paths.get(fileName);
-        logger.debug("Path for file '{}' -> '{}'");
+        logger.debug("Path for file '{}' -> '{}'", fileName, path.toAbsolutePath().toString());
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             String line = "";
             int lineNo = 0;
