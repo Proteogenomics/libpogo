@@ -3,6 +3,7 @@ package uk.ac.ebi.pride.proteogenomics.pogo.model.reader;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +15,13 @@ import java.util.List;
  * All rights reserved.
  */
 
-public interface PoGoReader {
-    List<PoGoEntry> readPoGoFile(String fileName);
+public abstract class PoGoFileReader {
+
+    protected abstract String getDelimiter();
+
+    public List<PoGoEntry> readAllPoGoEntries(String fileName) {
+        List<PoGoEntry> poGoEntries = new ArrayList<>();
+        // TODO
+        return poGoEntries;
+    }
 }
