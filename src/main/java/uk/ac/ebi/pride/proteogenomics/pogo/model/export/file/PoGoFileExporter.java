@@ -63,8 +63,9 @@ public class PoGoFileExporter implements PoGoExporter {
         }
 
         File output = new File(fileName);
-        if (!output.canWrite()) {
-            throw new PoGoExporterException(String.format("Can't export PoGo data to file '%s'", fileName));
+        logger.debug("Export PoGo data to file '{}', at '{}'", fileName, output.getAbsolutePath());
+        if (output.exists()) {
+            throw new PoGoExporterException(String.format("Can't export PoGo data to file '%s', IT ALREADY EXISTS", fileName));
         }
 
         Path path = Paths.get(fileName);
@@ -73,11 +74,11 @@ public class PoGoFileExporter implements PoGoExporter {
             writer.write(poGoHeaderSerializer.serializeHeader(Arrays.asList(HEADERS.EXPERIMENT.getValue(),
                     HEADERS.PEPTIDE.getValue(),
                     HEADERS.PSM.getValue(),
-                    HEADERS.QUANT.getValue())));
+                    HEADERS.QUANT.getValue())) + "\n");
             // Write entries
             for (PoGoEntry poGoEntry :
                     poGoEntries) {
-                writer.write(poGoEntrySerializer.serializeEntry(poGoEntry));
+                writer.write(poGoEntrySerializer.serializeEntry(poGoEntry) + "\n");
             }
         } catch (IOException e) {
             throw new PoGoExporterException(String.format("PoGo data COULD NOT BE EXPORTED to file '%s' because ", fileName), e);
