@@ -10,8 +10,8 @@ package uk.ac.ebi.pride.proteogenomics.pogo.model.translator;
  */
 
 public interface PoGoEntryTranslator {
-    public void getExperiment(String experiment);
-    public void getPeptide(String peptide);
-    public void getPsm(Integer psm);
-    public void getQuant(Double quant);
+    public String getExperiment(String experiment);
+    public String getPeptide(String peptide);
+    public Integer getPsm(Integer psm);
+    public Double getQuant(Double quant);
 }
