@@ -7,6 +7,24 @@
   <version>1.0-SNAPSHOT</version>
   <name>libpogo</name>
   <url>http://maven.apache.org</url>
+
+  <developers>
+    <developer>
+      <id>mbernal</id>
+      <name>Manuel Bernal-Llinares</name>
+      <organization>Proteomics Team, EMBL-European Bioinformatics Institute</organization>
+      <organizationUrl>http://www.ebi.ac.uk/pride</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/London</timezone>
+    </developer>
+  </developers>
+
+  <properties>
+    <uk.ac.ebi.pride.utilities-pride-mode.version>2.1.5-SNAPSHOT</uk.ac.ebi.pride.utilities-pride-mode.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <!-- Logging -->
@@ -58,6 +76,14 @@
       <version>1.0</version>
     </dependency>
     <!-- END - Unit Testing -->
+
+    <!-- PRIDE Dependencies -->
+    <dependency>
+      <groupId>uk.ac.ebi.pride.utilities</groupId>
+      <artifactId>pride-mod</artifactId>
+      <version>${uk.ac.ebi.pride.utilities-pride-mode.version}</version>
+    </dependency>
+    <!-- END - PRIDE Dependencies -->
   </dependencies>
 
   <build>
