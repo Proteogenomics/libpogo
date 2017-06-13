@@ -30,7 +30,7 @@ public class PoGoTranslatedEntry extends PoGoEntry {
 
     @Override
     public void setPeptide(String peptide) {
-        // TODO
+        peptide = poGoEntryTranslator.getPeptide(peptide);
     }
 
     @Override
