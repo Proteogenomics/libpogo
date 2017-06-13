@@ -46,9 +46,9 @@ public abstract class PoGoFileReader {
             while((line = reader.readLine()) != null) {
                 if (lineNo == 0) {
                     logger.debug("Skipping header -> '{}'", line);
+                    lineNo++;
                     continue;
                 }
-                lineNo++;
                 String[] lineItems = line.trim().split(getDelimiter());
                 if (lineItems.length == 4) {
                     poGoEntries.add(new PoGoEntry(lineItems[0],
