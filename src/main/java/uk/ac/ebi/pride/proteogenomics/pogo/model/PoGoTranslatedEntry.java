@@ -40,6 +40,6 @@ public class PoGoTranslatedEntry extends PoGoEntry {
 
     @Override
     public void setQuant(Double quant) {
-        // TODO
+        quant = poGoEntryTranslator.getQuant(quant);
     }
 }
