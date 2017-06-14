@@ -1,5 +1,7 @@
 package uk.ac.ebi.pride.proteogenomics.pogo.model.translator;
 
+import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
+
 /**
  * Project: libpogo
  * Package: uk.ac.ebi.pride.proteogenomics.pogo.model.translator
@@ -10,8 +12,5 @@ package uk.ac.ebi.pride.proteogenomics.pogo.model.translator;
  */
 
 public interface PoGoEntryTranslator {
-    String getExperiment(String experiment);
-    String getPeptide(String peptide);
-    Integer getPsm(Integer psm);
-    Double getQuant(Double quant);
+    void visit(PoGoEntry poGoEntry);
 }
