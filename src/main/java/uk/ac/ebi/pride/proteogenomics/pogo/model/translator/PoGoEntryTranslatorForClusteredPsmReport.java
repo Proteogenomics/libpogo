@@ -26,6 +26,11 @@ public class PoGoEntryTranslatorForClusteredPsmReport implements PoGoEntryTransl
     @Override
     public PoGoEntry visit(PoGoEntry poGoEntry) {
         // TODO
+        poGoEntry.setExperiment(clusteredPSMReport.getClusterId().toString());
+        // TODO - Translate peptide sequence with modifications embedded
+        poGoEntry.setPsm(clusteredPSMReport.getClusterNumberPSMs());
+        // TODO - This parameter will be let as zero right now, in the future we need to work out a way to leave as it is right now, or compute its value
+        poGoEntry.setQuant(0d);
         return poGoEntry;
     }
 }
