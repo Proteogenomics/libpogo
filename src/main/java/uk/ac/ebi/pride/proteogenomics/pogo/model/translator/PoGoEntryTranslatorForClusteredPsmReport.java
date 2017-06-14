@@ -36,7 +36,10 @@ public class PoGoEntryTranslatorForClusteredPsmReport implements PoGoEntryTransl
             for (ModificationProvider modification
                     : clusteredPSMReport.getModifications()
                  ) {
-                String modificationShortName = ModReader.getInstance().getShortNamePRIDEModByChildAccession(modification.getAccession());
+                String modificationShortName =
+                        ModReader.getInstance().getShortNamePRIDEModByChildAccession(modification.getAccession()) != null
+                                ? ModReader.getInstance().getShortNamePRIDEModByChildAccession(modification.getAccession())
+                                : String.format("---MODIFICATION_NOT_FOUND-ACCESSION_%s---", modification.getAccession());
                 if (modificationsMap.get(modification.getMainPosition()) == null) {
                     modificationsMap.put(modification.getMainPosition(), new ArrayList<>());
                 }
