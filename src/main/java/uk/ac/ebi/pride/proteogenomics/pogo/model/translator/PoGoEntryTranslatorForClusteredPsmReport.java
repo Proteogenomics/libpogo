@@ -2,6 +2,8 @@ package uk.ac.ebi.pride.proteogenomics.pogo.model.translator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
+import uk.ac.ebi.pride.spectracluster.repo.model.ClusteredPSMReport;
 
 /**
  * Project: libpogo
@@ -15,23 +17,14 @@ import org.slf4j.LoggerFactory;
 public class PoGoEntryTranslatorForClusteredPsmReport implements PoGoEntryTranslator {
     private static final Logger logger = LoggerFactory.getLogger(PoGoEntryTranslatorForClusteredPsmReport.class);
 
-    @Override
-    public String getExperiment(String experiment) {
-        return null;
+    private ClusteredPSMReport clusteredPSMReport = null;
+
+    public PoGoEntryTranslatorForClusteredPsmReport(ClusteredPSMReport clusteredPSMReport) {
+        this.clusteredPSMReport = clusteredPSMReport;
     }
 
     @Override
-    public String getPeptide(String peptide) {
-        return null;
-    }
-
-    @Override
-    public Integer getPsm(Integer psm) {
-        return null;
-    }
-
-    @Override
-    public Double getQuant(Double quant) {
-        return null;
+    public void visit(PoGoEntry poGoEntry) {
+        // TODO
     }
 }
