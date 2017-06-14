@@ -12,5 +12,5 @@ import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
  */
 
 public interface PoGoEntryTranslator {
-    void visit(PoGoEntry poGoEntry);
+    PoGoEntry visit(PoGoEntry poGoEntry);
 }
