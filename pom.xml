@@ -23,10 +23,18 @@
 
   <properties>
     <uk.ac.ebi.pride.utilities-pride-mode.version>2.1.5-SNAPSHOT</uk.ac.ebi.pride.utilities-pride-mode.version>
+    <uk.ac.ebi.pride.spectracluster-spectra-cluster-repo.version>1.0.5</uk.ac.ebi.pride.spectracluster-spectra-cluster-repo.version>
   </properties>
 
   <dependencies>
+    <!-- PRIDE Cluster -->
     <dependency>
+      <groupId>uk.ac.ebi.pride.spectracluster</groupId>
+      <artifactId>spectra-cluster-repo</artifactId>
+      <version>${uk.ac.ebi.pride.spectracluster-spectra-cluster-repo.version}</version>
+    </dependency>
+    <dependency>
+
       <!-- Logging -->
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
