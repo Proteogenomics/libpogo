@@ -1,5 +1,7 @@
 package uk.ac.ebi.pride.proteogenomics.pogo.model;
 
+import uk.ac.ebi.pride.proteogenomics.pogo.model.translator.PoGoEntryTranslator;
+
 /**
  * Project: libpogo
  * Package: uk.ac.ebi.pride.proteogenomics.pogo.model
@@ -18,7 +20,6 @@ public class PoGoEntry {
     private Double quant = 0d;
 
     protected PoGoEntry() {
-        // For inheritance
     }
 
     protected PoGoEntry(String experiment, String peptide, Integer psm, Double quant) {
@@ -58,5 +59,10 @@ public class PoGoEntry {
 
     public void setQuant(Double quant) {
         this.quant = quant;
+    }
+
+    // Visitor
+    public void accept(PoGoEntryTranslator poGoEntryTranslator) {
+        poGoEntryTranslator.visit(this);
     }
 }
