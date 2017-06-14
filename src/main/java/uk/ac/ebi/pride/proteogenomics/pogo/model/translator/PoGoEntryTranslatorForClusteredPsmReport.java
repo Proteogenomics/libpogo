@@ -32,24 +32,30 @@ public class PoGoEntryTranslatorForClusteredPsmReport implements PoGoEntryTransl
         StringBuilder translatedSequence = new StringBuilder("---NO_TRANSLATION---");
         Map<Integer, List<String>> modificationsMap = new HashMap<>();
         // Translate the modifications into their short names and sort them by position
-        for (ModificationProvider modification
-                : clusteredPSMReport.getModifications()
-             ) {
-            String modificationShortName = ModReader.getInstance().getShortNamePRIDEModByChildAccession(modification.getAccession());
-            if (modificationsMap.get(modification.getMainPosition()) == null) {
-                modificationsMap.put(modification.getMainPosition(), new ArrayList<>());
+        if (clusteredPSMReport.getModifications() != null) {
+            for (ModificationProvider modification
+                    : clusteredPSMReport.getModifications()
+                 ) {
+                String modificationShortName = ModReader.getInstance().getShortNamePRIDEModByChildAccession(modification.getAccession());
+                if (modificationsMap.get(modification.getMainPosition()) == null) {
+                    modificationsMap.put(modification.getMainPosition(), new ArrayList<>());
+                }
+                modificationsMap.get(modification.getMainPosition()).add(modificationShortName);
             }
-            modificationsMap.get(modification.getMainPosition()).add(modificationShortName);
         }
         // Embed modifications by position in the sequence
-        int position = 1;
         if (clusteredPSMReport.getSequence().length() > 0) {
             translatedSequence = new StringBuilder();
         }
-        for (char character : clusteredPSMReport.getSequence().toCharArray()) {
-            translatedSequence.append(character);
-            if (modificationsMap.get(position) != null) {
-                translatedSequence.append(String.format("(%s)", String.join(",", modificationsMap.get(position))));
+        if ((clusteredPSMReport.getSequence() != null) &&
+                clusteredPSMReport.getSequence().length() > 0) {
+            int position = 1;
+            for (char character : clusteredPSMReport.getSequence().toCharArray()) {
+                translatedSequence.append(character);
+                if (modificationsMap.get(position) != null) {
+                    translatedSequence.append(String.format("(%s)", String.join(",", modificationsMap.get(position))));
+                }
+                position++;
             }
         }
         return translatedSequence.toString();
