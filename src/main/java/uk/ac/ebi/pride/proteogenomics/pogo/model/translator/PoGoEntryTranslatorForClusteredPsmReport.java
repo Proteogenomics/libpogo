@@ -24,7 +24,8 @@ public class PoGoEntryTranslatorForClusteredPsmReport implements PoGoEntryTransl
     }
 
     @Override
-    public void visit(PoGoEntry poGoEntry) {
+    public PoGoEntry visit(PoGoEntry poGoEntry) {
         // TODO
+        return poGoEntry;
     }
 }
