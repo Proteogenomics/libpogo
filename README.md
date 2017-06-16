@@ -58,8 +58,13 @@ The first line contains the headers for the columns in the file, and the rest of
 A **PoGoEntry** represents one of those lines, and it is created using a **PoGoEntryFactory** like in the following example:
 
 ```java
+import uk.ac.ebi.pride.spectracluster.repo.model.ClusteredPSMReport;
+import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntryFactory;
+//
 public class MyClientClass {
     public void myProcessing() {
+        ClusteredPSMReport clusteredPSMReport = null;
+        // TODO - Create or get your ClusteredPSMReport...
         // For creating PoGo entries from ClusteredPSMReport instances from PRIDE
         PoGoEntryFactory.createPoGoEntryFrom(clusteredPSMReport);
         // For creating a PoGoEntry from its fields / columns
@@ -77,7 +82,7 @@ PoGo exporters are instantiated via a factory called **PoGoExporterFactory**, an
 import uk.ac.ebi.pride.proteogenomics.pogo.model.export.PoGoExporterFactory;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 import java.util.List;
-
+//
 public class MyClientClass {
     public void myExportingProcess() {
         // To export your list of PoGo entries to a tab delimited .pogo file
@@ -97,6 +102,7 @@ import uk.ac.ebi.pride.proteogenomics.pogo.model.reader.PoGoReaderFactory;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.reader.PoGoFileReader;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 import java.util.List;
+//
 public class MyClientClass {
     public List<PoGoEntry> myReadingProcess() {
         // To import your PoGo data from a tab delimited .pogo file
