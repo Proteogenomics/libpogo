@@ -39,7 +39,7 @@ public class PoGoEntryTranslatorForClusteredPsmReport implements PoGoEntryTransl
                 String modificationShortName =
                         ModReader.getInstance().getShortNamePRIDEModByChildAccession(modification.getAccession()) != null
                                 ? ModReader.getInstance().getShortNamePRIDEModByChildAccession(modification.getAccession())
-                                : String.format("---MODIFICATION_NOT_FOUND-ACCESSION_%s---", modification.getAccession());
+                                : String.format("any_other_PTM", modification.getAccession());
                 if (modificationsMap.get(modification.getMainPosition()) == null) {
                     modificationsMap.put(modification.getMainPosition(), new ArrayList<>());
                 }
