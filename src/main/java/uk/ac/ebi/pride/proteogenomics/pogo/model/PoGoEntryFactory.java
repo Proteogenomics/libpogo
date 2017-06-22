@@ -1,7 +1,5 @@
 package uk.ac.ebi.pride.proteogenomics.pogo.model;
 
-import uk.ac.ebi.pride.proteogenomics.pogo.model.translator.PoGoEntryVisitorForClusteredPsmReport;
-import uk.ac.ebi.pride.spectracluster.repo.model.ClusteredPSMReport;
 
 /**
  * Project: libpogo
