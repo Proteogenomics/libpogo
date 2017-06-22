@@ -17,7 +17,14 @@ public class PoGoEntryFactory {
         return new PoGoEntry(experiment, peptide, psm, quant);
     }
 
-    public static PoGoEntry createPoGoEntryFrom(ClusteredPSMReport clusteredPSMReport) {
-        return (new PoGoEntryVisitorForClusteredPsmReport(clusteredPSMReport)).visit(new PoGoEntry());
+    /**
+     * This method allows external strategies/algorithms for creating PoGo entries to be encapsulated and shared among
+     * multiple libraries
+     *
+     * @param poGoEntryVisitor the visitor that implements the creation strategy for a PoGo bean
+     * @return the created PoGoEntry
+     */
+    public static PoGoEntry createPoGoEntryWithStrategy(PoGoEntryVisitor poGoEntryVisitor) {
+        return (poGoEntryVisitor.visit(new PoGoEntry()));
     }
 }
