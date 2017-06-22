@@ -43,9 +43,10 @@ public class LibraryTest {
     @Before
     public void prepareTestsOutputFolder() {
         tmpFolder = new File(tmpFolderName);
-        if (!tmpFolder.exists()) {
-            tmpFolder.mkdirs();
+        if (tmpFolder.exists()) {
+            cleanTestsOutputFolder();
         }
+        tmpFolder.mkdirs();
     }
 
     public void cleanTestsOutputFolder() {
