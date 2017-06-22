@@ -1,4 +1,4 @@
-package uk.ac.ebi.pride.proteogenomics.pogo.model.translator;
+package uk.ac.ebi.pride.proteogenomics.pogo.model;
 
 import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 
@@ -9,6 +9,8 @@ import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
  * ---
  * © 2017 Manuel Bernal Llinares <mbdebian@gmail.com>
  * All rights reserved.
+ *
+ * Interface for factoring visitors that implement the strategy to fill in and / or modifying a PoGoEntry
  */
 
 public interface PoGoEntryVisitor {

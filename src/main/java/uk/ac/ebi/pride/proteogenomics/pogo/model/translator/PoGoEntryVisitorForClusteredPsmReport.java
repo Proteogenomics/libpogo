@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.ac.ebi.pride.archive.dataprovider.identification.ModificationProvider;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
+import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntryVisitor;
 import uk.ac.ebi.pride.spectracluster.repo.model.ClusteredPSMReport;
 import uk.ac.ebi.pride.utilities.pridemod.ModReader;
 import uk.ac.ebi.pride.utilities.pridemod.model.PRIDEModPTM;

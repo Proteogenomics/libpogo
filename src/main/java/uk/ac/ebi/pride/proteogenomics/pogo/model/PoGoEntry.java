@@ -1,7 +1,5 @@
 package uk.ac.ebi.pride.proteogenomics.pogo.model;
 
-import uk.ac.ebi.pride.proteogenomics.pogo.model.translator.PoGoEntryVisitor;
-
 /**
  * Project: libpogo
  * Package: uk.ac.ebi.pride.proteogenomics.pogo.model
