@@ -32,7 +32,7 @@
     <uk.ac.ebi.pride.architectural-pride-logging.version>1.0.0</uk.ac.ebi.pride.architectural-pride-logging.version>
     <!-- TDD -->
     <uk.ac.ebi.pride.architectural-pride-tdd.version>1.0.3</uk.ac.ebi.pride.architectural-pride-tdd.version>
-    <uk.ac.ebi.pride.utilities-pride-mode.version>2.1.5-SNAPSHOT</uk.ac.ebi.pride.utilities-pride-mode.version>
+    <uk.ac.ebi.pride.utilities-pride-mode.version>2.1.5</uk.ac.ebi.pride.utilities-pride-mode.version>
     <uk.ac.ebi.pride.spectracluster-spectra-cluster-repo.version>1.0.5</uk.ac.ebi.pride.spectracluster-spectra-cluster-repo.version>
   </properties>
 
