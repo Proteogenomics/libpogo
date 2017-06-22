@@ -8,6 +8,7 @@ import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 import uk.ac.ebi.pride.spectracluster.repo.model.ClusteredPSMReport;
 import uk.ac.ebi.pride.utilities.pridemod.ModReader;
 import uk.ac.ebi.pride.utilities.pridemod.controller.impl.PRIDEModDataAccessController;
+import uk.ac.ebi.pride.utilities.pridemod.model.PRIDEModPTM;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,11 +36,14 @@ public class PoGoEntryTranslatorForClusteredPsmReport implements PoGoEntryTransl
         if (clusteredPSMReport.getModifications() != null) {
             for (ModificationProvider modification
                     : clusteredPSMReport.getModifications()
-                 ) {
-                String modificationShortName =
-                        ModReader.getInstance().getShortNamePRIDEModByChildAccession(modification.getAccession()) != null
-                                ? ModReader.getInstance().getShortNamePRIDEModByChildAccession(modification.getAccession())
-                                : String.format("any_other_PTM", modification.getAccession());
+                    ) {
+                PRIDEModPTM prideModPTM = ModReader.getInstance().getPRIDEModByAccessionAndAmminoAcid(modification.getAccession(),
+                        String.valueOf(clusteredPSMReport.getSequence().charAt(modification.getMainPosition() - 1)));
+                String modificationShortName = "any_other_ptm";
+                if ((prideModPTM != null)
+                        && prideModPTM.isBiologicalRelevant()) {
+                    modificationShortName = prideModPTM.getShortName();
+                }
                 if (modificationsMap.get(modification.getMainPosition()) == null) {
                     modificationsMap.put(modification.getMainPosition(), new ArrayList<>());
                 }
