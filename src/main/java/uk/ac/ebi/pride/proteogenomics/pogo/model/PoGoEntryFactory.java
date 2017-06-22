@@ -1,7 +1,6 @@
 package uk.ac.ebi.pride.proteogenomics.pogo.model;
 
-import uk.ac.ebi.pride.proteogenomics.pogo.model.export.PoGoExporter;
-import uk.ac.ebi.pride.proteogenomics.pogo.model.translator.PoGoEntryTranslatorForClusteredPsmReport;
+import uk.ac.ebi.pride.proteogenomics.pogo.model.translator.PoGoEntryVisitorForClusteredPsmReport;
 import uk.ac.ebi.pride.spectracluster.repo.model.ClusteredPSMReport;
 
 /**
@@ -19,6 +18,6 @@ public class PoGoEntryFactory {
     }
 
     public static PoGoEntry createPoGoEntryFrom(ClusteredPSMReport clusteredPSMReport) {
-        return (new PoGoEntryTranslatorForClusteredPsmReport(clusteredPSMReport)).visit(new PoGoEntry());
+        return (new PoGoEntryVisitorForClusteredPsmReport(clusteredPSMReport)).visit(new PoGoEntry());
     }
 }

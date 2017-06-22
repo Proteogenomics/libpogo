@@ -1,6 +1,6 @@
 package uk.ac.ebi.pride.proteogenomics.pogo.model;
 
-import uk.ac.ebi.pride.proteogenomics.pogo.model.translator.PoGoEntryTranslator;
+import uk.ac.ebi.pride.proteogenomics.pogo.model.translator.PoGoEntryVisitor;
 
 /**
  * Project: libpogo
@@ -62,7 +62,7 @@ public class PoGoEntry {
     }
 
     // Visitor
-    public void accept(PoGoEntryTranslator poGoEntryTranslator) {
-        poGoEntryTranslator.visit(this);
+    public void accept(PoGoEntryVisitor poGoEntryVisitor) {
+        poGoEntryVisitor.visit(this);
     }
 }

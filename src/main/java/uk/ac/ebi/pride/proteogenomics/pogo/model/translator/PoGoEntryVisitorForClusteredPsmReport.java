@@ -3,11 +3,9 @@ package uk.ac.ebi.pride.proteogenomics.pogo.model.translator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.ac.ebi.pride.archive.dataprovider.identification.ModificationProvider;
-import uk.ac.ebi.pride.jmztab.model.Modification;
 import uk.ac.ebi.pride.proteogenomics.pogo.model.PoGoEntry;
 import uk.ac.ebi.pride.spectracluster.repo.model.ClusteredPSMReport;
 import uk.ac.ebi.pride.utilities.pridemod.ModReader;
-import uk.ac.ebi.pride.utilities.pridemod.controller.impl.PRIDEModDataAccessController;
 import uk.ac.ebi.pride.utilities.pridemod.model.PRIDEModPTM;
 
 import java.util.ArrayList;
@@ -24,8 +22,8 @@ import java.util.Map;
  * All rights reserved.
  */
 
-public class PoGoEntryTranslatorForClusteredPsmReport implements PoGoEntryTranslator {
-    private static final Logger logger = LoggerFactory.getLogger(PoGoEntryTranslatorForClusteredPsmReport.class);
+public class PoGoEntryVisitorForClusteredPsmReport implements PoGoEntryVisitor {
+    private static final Logger logger = LoggerFactory.getLogger(PoGoEntryVisitorForClusteredPsmReport.class);
 
     private ClusteredPSMReport clusteredPSMReport = null;
 
@@ -68,7 +66,7 @@ public class PoGoEntryTranslatorForClusteredPsmReport implements PoGoEntryTransl
         return translatedSequence.toString();
     }
 
-    public PoGoEntryTranslatorForClusteredPsmReport(ClusteredPSMReport clusteredPSMReport) {
+    public PoGoEntryVisitorForClusteredPsmReport(ClusteredPSMReport clusteredPSMReport) {
         this.clusteredPSMReport = clusteredPSMReport;
     }
 
